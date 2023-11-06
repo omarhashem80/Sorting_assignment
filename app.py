@@ -37,13 +37,13 @@ if page == 'Statistics':
 elif page == 'Plots':
     st.write('# Plots')
     sel_col = st.selectbox('Select Type', ['Unsorted', 'Sorted'])
-    if sel_col == 'Sorted':
+    if sel_col == 'Unsorted':
         unsorted_fig = px.line(unsorted_df, x=unsorted_df.index, y=unsorted_df.columns, markers=True,
                                title='Unsorted Algorithms Performance')
         unsorted_fig.update_xaxes(title_text='Size', range=[0, 5000])
         unsorted_fig.update_yaxes(title_text='Time', range=[0, 10])
         st.plotly_chart(unsorted_fig)
-    elif sel_col == 'Unsorted':
+    else:
         sorted_fig = px.line(sorted_df, x=sorted_df.index, y=sorted_df.columns,
                              markers=True, title='Sorted Algorithms Performance')
         sorted_fig.update_xaxes(title_text='Size', range=[0, 5000])
